@@ -1,0 +1,44 @@
+Time Complexity:- O(n)
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int main()
+{
+	int n=8;
+	int arr1[]={4,5,8,9,11,13,16,20};
+	int arr2[]={2,3,5,11,12,13,14,18};
+	int arr3[]={1,4,5,8,10,11,13,24};
+	
+	int i=0,j=0,k=0;
+	while(i<n && j<n && k<n)
+	{
+		if(arr1[i]==arr2[j] && arr2[j]==arr3[k])
+		{
+			cout<<arr1[i]<<" ";
+			++i;
+			++j;
+			++k;
+		}
+		else
+		{
+			if(arr1[i]<arr2[j])
+			{
+				if(arr1[i]<arr3[k])
+				++i;
+				else
+				++k;
+			}
+			else
+			{
+				if(arr2[j]<arr3[k])
+				++j;
+				else
+				++k;
+			}
+		}
+	}
+	
+}
