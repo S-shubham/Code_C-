@@ -1,0 +1,53 @@
+assumption:- if all the arrays are sorted and have same length, and is of int type
+Time Complexity::- O(n)+O(n)= O(n)
+
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int main()
+{
+	int n=8;
+	int arr1[]={4,5,8,9,11,13,16,20};
+	int arr2[]={2,3,5,11,12,13,14,18};
+	int arr3[]={1,4,5,8,10,11,13,24};
+	
+	vector<int>v;
+	int i=0,j=0;
+	
+	while(i<n & j<n)
+	{
+		if(arr1[i]==arr2[j])
+		{
+			v.push_back(arr1[i]);
+			++i;
+			++j;
+			continue;	
+		}
+		else if(arr1[i]<arr2[j])
+		++i;
+		else
+		++j;
+		
+	}
+	int l=v.size();
+	i=0,j=0;
+	while(i<l && j<n)
+	{
+		if(v[i]==arr3[j])
+		{ 
+			cout<<v[i]<<" ";
+			++i;
+			++j;
+		}
+		else if(v[i]<arr3[j])
+		{
+			++i;
+		}
+		else
+		++j;
+	}
+
+}
